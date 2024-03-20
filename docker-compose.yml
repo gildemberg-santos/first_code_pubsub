@@ -1,0 +1,17 @@
+# Docker Compose para criar uma instancia do Redis
+version: '3.8'
+
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+
